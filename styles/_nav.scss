@@ -1,0 +1,85 @@
+nav {
+    background: $light_grey;
+    //@include shadow();
+    .container {
+        display: flex;
+        justify-content: space-between;
+
+        //logo styles
+        img {
+            padding: 15px;
+            height: 30px;
+            width: auto;
+        }
+        input {
+            display: none;
+        }
+        //menu icon styles
+        .bars {
+            font-size: 2em;
+            @include flex();
+            color: $dark_grey;
+            cursor: pointer;
+            .fa-times {
+                display: none;
+            }
+        }
+
+        //navbar links styles
+        .links {
+            display: none;
+            top: 0px;
+            transition: top 1s;
+            a {
+                flex: 1;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: $dark_grey;
+                padding: 0 10px;
+                line-height: 2em;
+                text-decoration: none;
+                transition: background 0.2s;
+                &:hover {
+                    background: $theme_color;
+                    color: white;
+                }
+            }
+        }
+    }
+}
+
+//show navigation when the menu icon is pressed
+input[type=checkbox]:checked~.links {
+    display: block;
+    width: 100%;
+    background: $light_grey;
+    position: absolute;
+    top: 60px;
+    left: 0;
+}
+
+//swapping out icons when menu icon is pressed
+input[type=checkbox]:checked~.bars {
+    .fa-times {
+        display: inline;
+    }
+    .fa-bars {
+        display: none;
+    }
+}
+
+//layout changing place for navbar
+@media (min-width: 720px) {
+    nav {
+        .container {
+            .bars {
+                display: none;
+            }
+            .links {
+                display: flex;
+                align-items: stretch;
+            }
+        }
+    }
+}

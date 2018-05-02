@@ -1,0 +1,53 @@
+/** all variables here **/
+
+$theme_color: rgb(17, 199, 0); //diffrent color of LibreCAD green
+$theme_dark: rgb(42, 170, 80);
+$light_grey: #f1f1f1;
+$dark_grey: rgb(77, 77, 77); //LibreCAD grey
+//where the webpage changes layout at
+$breakpoint: 500px;
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import 'home',
+'nav',
+'footer';
+body,
+html {
+    //font-family: 'Florencesans';
+    font-family: 'Open Sans', sans-serif;
+}
+
+a {
+    color: $light_grey;
+    transition: color 0.2s;
+    &:hover {
+        color: white;
+    }
+}
+
+//cool highlight color
+*::selection {
+    color: white;
+    background: $theme_color;
+}
+
+//layout - changing code
+@media (min-width: $breakpoint) {
+    .container {
+        width: 85%;
+        padding: 0;
+    }
+    .downloads,
+    .features,
+    .bar .container .content,
+    .associate .container,
+    footer .container .links {
+        flex-direction: row;
+    }
+    .contribute .container .content .text {
+        padding-left: 2em;
+    }
+    .associate .container .sponsor-items div {
+        width: 30%;
+        padding: 1em;
+    }
+}

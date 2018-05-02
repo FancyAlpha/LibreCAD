@@ -1,0 +1,148 @@
+/** variables and common mixins **/
+
+@mixin shadow() {
+    box-shadow: 0 0 5px #a3a3a3;
+}
+
+@mixin flex() {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+
+/** grid styles **/
+
+.container {
+    width: 100%;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+
+/** Header styles **/
+
+//title styles
+header {
+    h1 {
+        text-align: center;
+        font-size: 3em;
+        margin: 15vh 0 5vh;
+    }
+}
+
+//button styles
+.downloads {
+    @include flex();
+}
+
+.btn {
+    position: relative;
+    padding: 1em;
+    margin: 0.5em;
+    text-decoration: none;
+    background: $theme_color;
+    border-radius: 3px; //box-shadow: 0px 5px darken($theme_color, 10%);
+    transition: background 0.2s;
+    @include shadow();
+    &:hover {
+        //top: 3px;
+        //box-shadow: 0px 3px darken($theme_color, 10%);
+        background: darken($theme_color, 10%);
+    }
+}
+
+#win,
+#osx,
+#lnx {
+    justify-self: center;
+    display: none;
+}
+
+.show {
+    display: inline-block !important;
+}
+
+//image styles
+img {
+    width: 100%;
+}
+
+
+/** Main body styles **/
+
+.about {
+    font-size: 1.2em;
+}
+
+.features {
+    @include flex();
+    margin: 5em auto;
+    text-align: center;
+    color: $dark_grey;
+    .feature-item {
+        flex: 1;
+    }
+}
+
+.bar {
+    padding: 1em 0;
+    h2 {
+        text-align: center;
+    }
+    .container {
+        .content {
+            @include flex();
+        }
+    }
+}
+
+//get started 
+.start {
+    background: $theme_dark;
+    color: white;
+    .btn {
+        color: black;
+        background: $light_grey;
+        &:hover {
+            background: white;
+        }
+    }
+}
+
+//the github section
+.contribute .container .content {
+    padding: 2em 0;
+    a {
+        color: black;
+    }
+    h2 {
+        text-align: left;
+    }
+}
+
+//sponsors and friends
+.associate {
+    //background: #5e2495;
+    background: $light_grey;
+    .container {
+        .sponsor-items {
+            @include flex();
+            justify-content: center;
+            div {
+                img {
+                    width: 40%;
+                    margin: auto;
+                    display: block;
+                }
+                a {
+                    color: black;
+                }
+            }
+        }
+    }
+}
